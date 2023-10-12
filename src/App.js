@@ -26,17 +26,6 @@ function App() {
         alert(error)
       })
     }
-
-    function fetchName() {
-      axios.get('https://api.name-fake.com/random/random').then((response2) => {
-        setNames(response2.data)
-      })
-      names.map(n => (
-        setNames(n.name)
-      ))
-
-      return names
-    }
   
     return(
         <div className='p-5 container-fluid'>
@@ -54,7 +43,6 @@ function App() {
                   ))
                 }
               </select>
-
               <button type='button' className='btn btn-info m-2' onClick={(fetchPics)}>Hajeppa kuvia</button>
             </div>
           <div className='d-flex flex-wrap mb-3 justify-content-center'>
@@ -63,7 +51,6 @@ function App() {
               <img className='p-2 rounded card-img-top' alt='kissakuva' src={d.url} />
               <div className='m-2 p-2 bg-light rounded card-text text-center'>            
                 <a href={d.breeds[0].wikipedia_url} target='#'>{d.breeds[0].name}</a>
-                <p>{(fetchName)}</p>
                 <p><b>Alkuperämaa:</b> {d.breeds[0].origin}</p>           
               </div>
             </div>
